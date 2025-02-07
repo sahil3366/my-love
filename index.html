@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            background-color: pink;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            padding: 50px;
+            position: relative;
+        }
+        h1 {
+            font-size: 30px;
+            font-weight: bold;
+        }
+        p {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        #yesButton {
+            background-color: white;
+            color: pink;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        #yesButton:hover {
+            background-color: red;
+            color: white;
+        }
+        #surpriseMessage {
+            display: none;
+            margin-top: 30px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 30px;
+            animation: floatUp 3s infinite;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-100px); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Baby, will you be my Valentine? 💖</h1>
+    <p>Not just for one day, but for all the days to come? I promise to always be there for you, to support you, to listen to you, and to love you with all my heart.</p>
+    
+    <button id="yesButton" onclick="showSurprise()">Yes</button>
+
+    <div id="surpriseMessage">
+        <p>Yeyyyyyyyyy 🎉</p>
+        <p>Now as you are my valentine, I want to take a minute to tell you how much you mean to me. Since you came into my life, everything changed. I never knew someone would love me this much, I'm the luckiest person on this planet.</p>
+        <p>Lucky to have a partner who loves me so much, who is so so so beautiful not just by face but with heart as well, a partner who stands with me in every situation and motivates me to constantly improve myself.</p>
+        <p>I love you so much baby, you are my world. ❤️</p>
+    </div>
+
+    <script>
+        function showSurprise() {
+            document.getElementById("surpriseMessage").style.display = "block";
+            createHearts();
+        }
+
+        function createHearts() {
+            for (let i = 0; i < 20; i++) {
+                let heart = document.createElement("div");
+                heart.innerHTML = "❤️";
+                heart.classList.add("heart");
+                heart.style.left = Math.random() * window.innerWidth + "px";
+                heart.style.top = Math.random() * window.innerHeight + "px";
+                heart.style.animationDuration = (Math.random() * 2 + 1) + "s";
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 3000);
+            }
+        }
+    </script>
+
+</body>
+</html>
